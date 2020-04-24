@@ -1,0 +1,24 @@
+.recipes-list {
+  width: initial;
+  background-color: white;
+  border: solid 0.2vw silver;
+  border-radius: 0.5vw;
+  font-size: 1.5vw;
+  padding-left: 0.3vw;
+  padding-right: 0.3vw;
+
+  li {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(0deg, #7597a6, #adcdd8, #adcdd8, #7597a6);
+    border-radius: 0.5vw;
+    margin: 1vw 0;
+    padding: 0.5vw 2vw;
+    color: white;
+  }
+
+  li:hover {
+    cursor: pointer;
+    color: silver;
+  }
+}
