@@ -48,15 +48,15 @@ function App() {
     name: string | undefined,
     ingredients: string | undefined
   ) => {
-    const editedRecipeIndex = recipesList.findIndex(
-      (elem: TRecipe) => elem.id === id
+    const newList = recipesList.map((elem: TRecipe) =>
+      elem.id === id
+        ? {
+            ...elem,
+            name,
+            ingredients,
+          }
+        : elem
     )
-
-    const updatedRecipe = { currentlyEditedRecipe, name, ingredients }
-
-    const newList = recipesList
-
-    newList[editedRecipeIndex] = updatedRecipe
 
     setRecipesList(newList)
     setEditRecipeVisibility(false)
