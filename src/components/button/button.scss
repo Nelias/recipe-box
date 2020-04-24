@@ -15,3 +15,29 @@
     color: #111;
   }
 }
+
+.delete-button {
+  background: linear-gradient(
+    90deg,
+    rgb(148, 36, 36),
+    rgb(212, 52, 52),
+    rgb(228, 51, 51),
+    rgb(228, 51, 51),
+    rgb(212, 52, 52),
+    rgb(148, 36, 36)
+  );
+  color: white;
+}
+
+.save-button {
+  background: linear-gradient(
+    90deg,
+    rgb(49, 148, 36),
+    rgb(52, 212, 73),
+    rgb(57, 228, 51),
+    rgb(57, 228, 51),
+    rgb(52, 212, 73),
+    rgb(49, 148, 36)
+  );
+  color: white;
+}

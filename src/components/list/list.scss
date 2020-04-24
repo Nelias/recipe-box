@@ -1,5 +1,6 @@
 .recipes-list {
   width: initial;
+  min-width: 20vw;
   background-color: white;
   border: solid 0.2vw silver;
   border-radius: 0.5vw;
@@ -12,8 +13,8 @@
     justify-content: center;
     background: linear-gradient(0deg, #7597a6, #adcdd8, #adcdd8, #7597a6);
     border-radius: 0.5vw;
-    margin: 1vw 0;
-    padding: 0.5vw 2vw;
+    margin: 0.75vw 0.25vw;
+    padding: 0.25vw 2vw;
     color: white;
   }
 

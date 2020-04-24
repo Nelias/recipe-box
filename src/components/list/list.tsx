@@ -1,24 +1,27 @@
 import React from 'react'
 import './list.scss'
 
-type TRecipe = {
+export type TRecipe = {
   id: string
   name: string
   ingredients: string
 }
 
-interface IList {
+export interface IList {
   recipes: TRecipe[]
+  handleRecipeEdit: any
 }
 
-export const RecipesList: React.FC<IList> = ({ recipes }) => {
+export const RecipesList: React.FC<IList> = ({ recipes, handleRecipeEdit }) => {
   return (
     <ul className="recipes-list">
       {recipes.map((recipe: TRecipe) => {
-        return <li>{recipe.name}</li>
+        return (
+          <li key={recipe.id} onClick={() => handleRecipeEdit(recipe.id)}>
+            {recipe.name}
+          </li>
+        )
       })}
-      <li>Sweet Potato Chips</li>
-      <li>Pizza</li>
     </ul>
   )
 }
