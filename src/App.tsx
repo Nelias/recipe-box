@@ -37,6 +37,31 @@ function App() {
     setEditRecipeVisibility(true)
   }
 
+  const handleRecipeDeletion = (id: string | undefined) => {
+    const newList = recipesList.filter((elem: TRecipe) => elem.id !== id)
+    setRecipesList(newList)
+    setEditRecipeVisibility(false)
+  }
+
+  const handleRecipeUpdate = (
+    id: string | undefined,
+    name: string | undefined,
+    ingredients: string | undefined
+  ) => {
+    const editedRecipeIndex = recipesList.findIndex(
+      (elem: TRecipe) => elem.id === id
+    )
+
+    const updatedRecipe = { currentlyEditedRecipe, name, ingredients }
+
+    const newList = recipesList
+
+    newList[editedRecipeIndex] = updatedRecipe
+
+    setRecipesList(newList)
+    setEditRecipeVisibility(false)
+  }
+
   return (
     <div className="app">
       <RecipesHeader />
@@ -49,6 +74,8 @@ function App() {
       {isEditRecipeVisible && (
         <EditRecipe
           setEditRecipeVisibility={setEditRecipeVisibility}
+          handleRecipeDeletion={handleRecipeDeletion}
+          handleRecipeUpdate={handleRecipeUpdate}
           recipe={currentlyEditedRecipe}
         />
       )}
