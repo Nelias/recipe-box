@@ -6,7 +6,7 @@
   border-width: 0.1vw;
   border-radius: 0.4vw;
 
-  color: #444;
+  color: #555;
   font-size: 1.2vw;
   font-family: 'New Rocker', cursive;
 
@@ -27,6 +27,10 @@
     rgb(148, 36, 36)
   );
   color: white;
+
+  &:hover {
+    color: rgb(88, 27, 27);
+  }
 }
 
 .save-button {
@@ -40,4 +44,17 @@
     rgb(49, 148, 36)
   );
   color: white;
+
+  &:hover {
+    color: greenyellow;
+  }
+}
+
+.disabled-button {
+  background: #aaa;
+  color: #ccc;
+  &:hover {
+    cursor: not-allowed;
+    color: #ccc;
+  }
 }

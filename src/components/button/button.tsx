@@ -5,14 +5,16 @@ interface IButton {
   text: string
   callback: any
   type?: string
+  disabled?: boolean
 }
 
-const Button: React.FC<IButton> = ({ text, callback, type }) => {
+const Button: React.FC<IButton> = ({ text, callback, type, disabled }) => {
   return (
     <button
       type="button"
       className={`button ${type}`}
       onClick={() => callback()}
+      disabled={disabled}
     >
       {text}
     </button>

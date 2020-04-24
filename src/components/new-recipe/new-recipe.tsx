@@ -32,6 +32,7 @@ export const NewRecipe: React.FC<INewRecipe> = ({
           id="ingredients-input"
           type="text"
           value={ingredientsInput}
+          placeholder="ingredients separated by a comma"
           onInput={(e: React.FormEvent<HTMLInputElement>) =>
             setIngredientsInput(e.currentTarget.value)
           }
@@ -46,8 +47,11 @@ export const NewRecipe: React.FC<INewRecipe> = ({
               ingredients: ingredientsInput,
             })
           }
+          disabled={nameInput && ingredientsInput ? false : true}
           text="Add Recipe"
-          type="save-button"
+          type={
+            nameInput && ingredientsInput ? 'save-button' : 'disabled-button'
+          }
         />
         <Button callback={() => setNewRecipeVisibility(false)} text="Cancel" />
       </div>
