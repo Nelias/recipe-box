@@ -9,25 +9,42 @@ import { EditRecipe } from './components/edit-recipe/edit-recipe'
 function App() {
   const [isNewRecipeVisible, setNewRecipeVisibility] = React.useState(false)
   const [isEditRecipeVisible, setEditRecipeVisibility] = React.useState(false)
-  const [recipesList, setRecipesList]: any = React.useState([
-    { id: 'sakj123j12lkj123sfdfs', name: 'Burger', ingredients: 'bun' },
-    {
-      id: 'sdfe12j12lkj123sfdfs',
-      name: 'Sweet Potato Chips',
-      ingredients: 'oil',
-    },
-    {
-      id: 'hgfghfgj2j12lkj123sfdfs',
-      name: 'Pizza',
-      ingredients: 'tomatoes, cheese',
-    },
-  ])
+  const [recipesList, setRecipesList]: any = React.useState([])
   const [currentlyEditedRecipe, setCurrentylEditedRecipe] = React.useState(null)
+
+  React.useEffect(() => {
+    if (typeof Storage !== 'undefined') {
+      if (localStorage.recipes) {
+        setRecipesList(JSON.parse(localStorage.recipes))
+      } else {
+        setRecipesList([
+          {
+            id: 'xzskj123j12lkj123szasd',
+            name: 'Burger',
+            ingredients: 'beef, bun, tomato, salad, mayo, pickle',
+          },
+          {
+            id: 'yhdjdfe12j12lkj123sf234s',
+            name: 'Sweet Potato Chips',
+            ingredients: 'sweet potato, oil, salt',
+          },
+          {
+            id: 'hgfghfgj2j12lkj123sf234kj',
+            name: 'Pizza',
+            ingredients: 'dough, tomatoes, cheese, oregano',
+          },
+        ])
+      }
+    } else {
+      return
+    }
+  }, [])
 
   const handleNewRecipe = (recipe: TRecipe) => {
     const newList = [...recipesList, recipe]
     setRecipesList(newList)
     setNewRecipeVisibility(false)
+    localStorage.recipes = JSON.stringify(newList)
   }
 
   const handleRecipeEdit = (id: string) => {
@@ -41,6 +58,7 @@ function App() {
     const newList = recipesList.filter((elem: TRecipe) => elem.id !== id)
     setRecipesList(newList)
     setEditRecipeVisibility(false)
+    localStorage.recipes = JSON.stringify(newList)
   }
 
   const handleRecipeUpdate = (
@@ -60,6 +78,7 @@ function App() {
 
     setRecipesList(newList)
     setEditRecipeVisibility(false)
+    localStorage.recipes = JSON.stringify(newList)
   }
 
   return (

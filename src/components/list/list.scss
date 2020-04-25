@@ -2,11 +2,13 @@
   width: initial;
   min-width: 20vw;
   background-color: white;
-  border: solid 0.2vw silver;
+  border: solid 3px #eee;
   border-radius: 0.5vw;
-  font-size: 1.5vw;
+  margin: 2vw;
   padding-left: 0.3vw;
   padding-right: 0.3vw;
+
+  font-size: 1.5vw;
 
   li {
     display: flex;
@@ -16,10 +18,20 @@
     margin: 0.75vw 0.25vw;
     padding: 0.25vw 2vw;
     color: white;
+
+    &:hover {
+      cursor: pointer;
+      color: rgb(110, 233, 233);
+    }
   }
 
-  li:hover {
-    cursor: pointer;
-    color: rgb(110, 233, 233);
+  .error-message {
+    background: linear-gradient(0deg, #afafaf, #dbdbdb, #dbdbdb, #afafaf);
+    color: #eee;
+
+    &:hover {
+      cursor: default;
+      color: #eee;
+    }
   }
 }
