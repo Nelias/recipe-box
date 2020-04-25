@@ -1,13 +1,13 @@
 $theme-gradient: linear-gradient(
   90deg,
-  #3b595d,
-  #7597a6,
+  #52929b,
+  #87b8ce,
   #adcdd8,
   #adcdd8,
   #adcdd8,
   #adcdd8,
-  #7597a6,
-  #3b595d
+  #87b8ce,
+  #52929b
 );
 
 body {
@@ -36,5 +36,11 @@ body {
 .buttons-field {
   button {
     margin: 0 1vw;
+  }
+}
+
+@media (max-width: 1100px) {
+  body {
+    background: #adcdd8;
   }
 }

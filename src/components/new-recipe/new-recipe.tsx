@@ -28,12 +28,11 @@ export const NewRecipe: React.FC<INewRecipe> = ({
           }
         />
         <label>Ingredients:</label>
-        <input
+        <textarea
           id="ingredients-input"
-          type="text"
           value={ingredientsInput}
-          placeholder="ingredients separated by a comma"
-          onInput={(e: React.FormEvent<HTMLInputElement>) =>
+          placeholder="separate with a comma"
+          onChange={(e: React.FormEvent<HTMLTextAreaElement>) =>
             setIngredientsInput(e.currentTarget.value)
           }
         />

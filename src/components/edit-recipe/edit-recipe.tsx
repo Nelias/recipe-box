@@ -38,11 +38,10 @@ export const EditRecipe: React.FC<IEditRecipe> = ({
           }
         />
         <label>Ingredients:</label>
-        <input
+        <textarea
           id="ingredients-input"
-          type="text"
           value={ingredientsInput}
-          onInput={(e: React.FormEvent<HTMLInputElement>) =>
+          onChange={(e: React.FormEvent<HTMLTextAreaElement>) =>
             setIngredientsInput(e.currentTarget.value)
           }
         />
