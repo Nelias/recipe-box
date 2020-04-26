@@ -14,19 +14,22 @@ export interface IList {
 
 export const RecipesList: React.FC<IList> = ({ recipes, handleRecipeEdit }) => {
   return (
-    <ul className="recipes-list">
+    <ul className="recipes-list" data-testid="recipes-list">
       {recipes.length < 1 ? (
         <li className="error-message">No recipes found!</li>
       ) : (
         recipes.map((recipe: TRecipe) => {
           return (
-            <li key={recipe.id} onClick={() => handleRecipeEdit(recipe.id)}>
+            <li
+              data-testid="list-item"
+              key={recipe.id}
+              onClick={() => handleRecipeEdit(recipe.id)}
+            >
               {recipe.name}
             </li>
           )
         })
       )}
-      {}
     </ul>
   )
 }

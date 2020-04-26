@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from '../button/button'
-import './recipe-popup.scss'
+import './recipe-details.scss'
 import { v4 as uuid } from 'uuid'
 
 interface INewRecipe {
@@ -16,18 +16,18 @@ export const NewRecipe: React.FC<INewRecipe> = ({
   const [ingredientsInput, setIngredientsInput] = React.useState('')
 
   return (
-    <div className="recipe-popup">
-      <form className="recipe-popup__form">
-        <label>Name:</label>
+    <div className="recipe-details">
+      <form className="recipe-details__form">
+        <label htmlFor="name-input">Name:</label>
         <input
           id="name-input"
           type="text"
           value={nameInput}
-          onInput={(e: React.FormEvent<HTMLInputElement>) =>
+          onChange={(e: React.FormEvent<HTMLInputElement>) =>
             setNameInput(e.currentTarget.value)
           }
         />
-        <label>Ingredients:</label>
+        <label htmlFor="ingredients-input">Ingredients:</label>
         <textarea
           id="ingredients-input"
           value={ingredientsInput}

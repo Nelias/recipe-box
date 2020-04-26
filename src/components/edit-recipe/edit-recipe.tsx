@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction } from 'react'
 import Button from '../button/button'
-import '../new-recipe/recipe-popup.scss'
+import '../new-recipe/recipe-details.scss'
 import { TRecipe } from '../list/list'
 
 interface IEditRecipe {
@@ -26,18 +26,18 @@ export const EditRecipe: React.FC<IEditRecipe> = ({
   )
 
   return (
-    <div className="recipe-popup">
-      <form className="recipe-popup__form">
-        <label>Name:</label>
+    <div className="recipe-details">
+      <form className="recipe-details__form">
+        <label htmlFor="name-input">Name:</label>
         <input
           id="name-input"
           type="text"
           value={nameInput}
-          onInput={(e: React.FormEvent<HTMLInputElement>) =>
+          onChange={(e: React.FormEvent<HTMLInputElement>) =>
             setNameInput(e.currentTarget.value)
           }
         />
-        <label>Ingredients:</label>
+        <label htmlFor="ingredients-input">Ingredients:</label>
         <textarea
           id="ingredients-input"
           value={ingredientsInput}
