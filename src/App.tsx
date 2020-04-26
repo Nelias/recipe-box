@@ -9,7 +9,7 @@ import { EditRecipe } from './components/edit-recipe/edit-recipe'
 function App() {
   const [isNewRecipeVisible, setNewRecipeVisibility] = React.useState(false)
   const [isEditRecipeVisible, setEditRecipeVisibility] = React.useState(false)
-  const [recipesList, setRecipesList]: any = React.useState([])
+  const [recipesList, setRecipesList]: TRecipe | any = React.useState([])
   const [currentlyEditedRecipe, setCurrentylEditedRecipe] = React.useState(null)
 
   React.useEffect(() => {

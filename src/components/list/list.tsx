@@ -9,7 +9,7 @@ export type TRecipe = {
 
 export interface IList {
   recipes: TRecipe[]
-  handleRecipeEdit: any
+  handleRecipeEdit: (id: string) => void
 }
 
 export const RecipesList: React.FC<IList> = ({ recipes, handleRecipeEdit }) => {

@@ -3,7 +3,7 @@ import './button.scss'
 
 interface IButton {
   text: string
-  callback: any
+  callback: () => void
   type?: string
   disabled?: boolean
 }

@@ -2,10 +2,13 @@ import React from 'react'
 import Button from '../button/button'
 import './recipe-details.scss'
 import { v4 as uuid } from 'uuid'
+import { TRecipe } from '../list/list'
 
 interface INewRecipe {
-  handleNewRecipe: any
-  setNewRecipeVisibility: any
+  handleNewRecipe: (recipe: TRecipe) => void
+  setNewRecipeVisibility: (
+    value: boolean | ((prevValue: boolean) => boolean)
+  ) => void
 }
 
 export const NewRecipe: React.FC<INewRecipe> = ({
