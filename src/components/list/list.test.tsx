@@ -9,6 +9,7 @@ describe('List of recipes', () => {
       <RecipesList
         recipes={[{ id: '1234', name: 'Pizza', ingredients: 'cheese' }]}
         handleRecipeEdit={() => null}
+        handleListReorder={() => null}
       />
     )
 
@@ -17,7 +18,13 @@ describe('List of recipes', () => {
   })
 
   test('should be able to see a not found message', () => {
-    render(<RecipesList recipes={[]} handleRecipeEdit={() => null} />)
+    render(
+      <RecipesList
+        recipes={[]}
+        handleRecipeEdit={() => null}
+        handleListReorder={() => null}
+      />
+    )
 
     expect(screen.queryByTestId(/list-item/i)).toBeNull()
   })

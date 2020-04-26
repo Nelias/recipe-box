@@ -31,7 +31,8 @@ function App() {
           {
             id: 'hgfghfgj2j12lkj123sf234kj',
             name: 'Pizza',
-            ingredients: 'dough, tomatoes, cheese, oregano',
+            ingredients:
+              '500 g of flour,\n200 g of tomatoes,\n200 g of cheese,\n100 ml of water,\n20 g of garlic,\n5 g of oregano',
           },
         ])
       }
@@ -81,6 +82,29 @@ function App() {
     localStorage.recipes = JSON.stringify(newList)
   }
 
+  const handleListReorder = (draggedID: string, newPosition: number) => {
+    const moveArrayItem = (
+      array: TRecipe[],
+      fromIndex: number,
+      toIndex: number
+    ) => {
+      if (toIndex >= array.length) {
+        toIndex = array.length - 1
+      }
+      array.splice(toIndex, 0, array.splice(fromIndex, 1)[0])
+      return array
+    }
+
+    const movedItemIndex = recipesList.findIndex(
+      (recipe: TRecipe) => recipe.id === draggedID
+    )
+
+    const newList = moveArrayItem(recipesList, movedItemIndex, newPosition)
+
+    setRecipesList(newList)
+    localStorage.recipes = JSON.stringify(newList)
+  }
+
   return (
     <div className="app">
       <RecipesHeader />
@@ -103,6 +127,7 @@ function App() {
           <RecipesList
             recipes={recipesList}
             handleRecipeEdit={handleRecipeEdit}
+            handleListReorder={handleListReorder}
           />
           <Button
             callback={() => setNewRecipeVisibility(true)}
