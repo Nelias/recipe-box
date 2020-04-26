@@ -22,7 +22,9 @@ export const RecipesList: React.FC<IList> = ({
   return (
     <DragDropContext
       onDragEnd={(result: any) => {
-        handleListReorder(result.draggableId, result.destination.index)
+        if (result.destination) {
+          handleListReorder(result.draggableId, result.destination.index)
+        }
       }}
     >
       <Droppable droppableId="droppable">

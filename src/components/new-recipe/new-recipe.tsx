@@ -34,7 +34,7 @@ export const NewRecipe: React.FC<INewRecipe> = ({
         <textarea
           id="ingredients-input"
           value={ingredientsInput}
-          placeholder="separate with a comma"
+          placeholder="You can't make a dish out of nothing"
           onChange={(e: React.FormEvent<HTMLTextAreaElement>) =>
             setIngredientsInput(e.currentTarget.value)
           }
@@ -49,7 +49,7 @@ export const NewRecipe: React.FC<INewRecipe> = ({
               ingredients: ingredientsInput,
             })
           }
-          disabled={nameInput && ingredientsInput ? false : true}
+          disabled={!(nameInput && ingredientsInput)}
           text="Add Recipe"
           type={
             nameInput && ingredientsInput ? 'save-button' : 'disabled-button'

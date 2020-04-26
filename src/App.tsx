@@ -83,26 +83,19 @@ function App() {
   }
 
   const handleListReorder = (draggedID: string, newPosition: number) => {
-    const moveArrayItem = (
-      array: TRecipe[],
-      fromIndex: number,
-      toIndex: number
-    ) => {
-      if (toIndex >= array.length) {
-        toIndex = array.length - 1
-      }
-      array.splice(toIndex, 0, array.splice(fromIndex, 1)[0])
-      return array
-    }
-
-    const movedItemIndex = recipesList.findIndex(
-      (recipe: TRecipe) => recipe.id === draggedID
+    const movedItem = recipesList.find((item: TRecipe) => item.id === draggedID)
+    const remainingItems = recipesList.filter(
+      (item: TRecipe) => item.id !== draggedID
     )
 
-    const newList = moveArrayItem(recipesList, movedItemIndex, newPosition)
+    const reorderedList = [
+      ...remainingItems.slice(0, newPosition),
+      movedItem,
+      ...remainingItems.slice(newPosition),
+    ]
 
-    setRecipesList(newList)
-    localStorage.recipes = JSON.stringify(newList)
+    setRecipesList(reorderedList)
+    localStorage.recipes = JSON.stringify(reorderedList)
   }
 
   return (
